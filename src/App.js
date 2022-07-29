@@ -1,5 +1,6 @@
 import "./styles/global.scss";
-import ExpenseItem from "./components/ExpenseItem/ExpenseItem";
+import Expenses from "./components/Expenses/Expenses";
+import { v4 as uuidv4 } from "uuid";
 
 function randomDate(start, end) {
   return new Date(
@@ -9,21 +10,16 @@ function randomDate(start, end) {
 
 const expenses = [...new Array(10)].map(() => ({
   date: randomDate(new Date(2012, 0, 1), new Date()),
-  title: Math.floor(Math.random()*100),
-  price: Math.floor(Math.random()*100),
+  title: Math.floor(Math.random() * 100),
+  price: Math.floor(Math.random() * 100),
+  id: uuidv4()
 }));
 
 function App() {
   return (
-    <div>
-      {expenses.map(({ date, title, price }) => (
-        <ExpenseItem
-          expenseDate={date}
-          expenseTitle={title}
-          expenseAmount={price}
-        />
-      ))}
-    </div>
+    <>
+      <Expenses expenses={expenses} />
+    </>
   );
 }
 
