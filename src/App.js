@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/global.scss";
+import ExpenseItem from "./components/ExpenseItem/ExpenseItem";
+
+function randomDate(start, end) {
+  return new Date(
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  );
+}
+
+const expenses = [...new Array(10)].map(() => ({
+  date: randomDate(new Date(2012, 0, 1), new Date()),
+  title: Math.floor(Math.random()*100),
+  price: Math.floor(Math.random()*100),
+}));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {expenses.map(({ date, title, price }) => (
+        <ExpenseItem
+          expenseDate={date}
+          expenseTitle={title}
+          expenseAmount={price}
+        />
+      ))}
     </div>
   );
 }
