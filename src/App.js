@@ -8,14 +8,13 @@ function App() {
   const [expenses, setExpenses] = useState([])
 
   const saveExpenseData = (enteredExpenseData) => {
-    setExpenses((prev) => ([
+    setExpenses((prev) => [
       {
         ...enteredExpenseData,
         id: uuidv4(),
       },
       ...prev,
-    ]))
-    console.log(enteredExpenseData)
+    ])
   }
   return (
     <>
