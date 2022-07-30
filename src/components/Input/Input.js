@@ -1,6 +1,6 @@
 import "./Input.scss"
 
-export default function Input({ label, type, min, step, onChange }) {
+export default function Input({ label, type, min, step, onChange, value }) {
   return (
     <div>
       <label htmlFor={label.toLowerCase()}>{label}</label>
@@ -10,6 +10,7 @@ export default function Input({ label, type, min, step, onChange }) {
         min={min}
         step={step}
         onChange={onChange}
+        value={value ? value : ''}
       />
     </div>
   )
