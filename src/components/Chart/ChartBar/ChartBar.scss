@@ -1,0 +1,20 @@
+.chart-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &__outline {
+        height: 100px;
+        width: 10px;
+        background-color: black;
+        position: relative;
+    }
+
+    &__inline {
+        width: 10px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}

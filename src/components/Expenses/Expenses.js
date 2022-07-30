@@ -2,6 +2,7 @@ import "./Expenses.scss"
 import ExpenseItem from "../Expenses/ExpenseItem/ExpenseItem"
 import ExpenseFilter from "./ExpenseFilter/ExpenseFilter"
 import { useState } from "react"
+import ExpenseChart from "./ExpenseChart/ExpenseChart"
 
 export default function Expenses({ expenses }) {
   const [chosenYear, setChosenYear] = useState("")
@@ -23,6 +24,7 @@ export default function Expenses({ expenses }) {
   return (
     <div>
       <ExpenseFilter onDataChange={changeYearFilter} currentYear={chosenYear} />
+      <ExpenseChart filteredArr={filteredArr}/>
       {filteredArr.length !== 0 ? (
         filteredArr.map(({ date, title, amount, id }) => (
           <ExpenseItem
