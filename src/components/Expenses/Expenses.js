@@ -20,11 +20,20 @@ export default function Expenses({ expenses }) {
       return true
     }
   })
+  const expensesYears = expenses.map((e) => {
+    const date = new Date(e.date)
+    return date.getFullYear()
+  })
+  const uniqueYears = [...new Set(expensesYears)].sort()
 
   return (
-    <div className="container expenses">
-      <ExpenseFilter onDataChange={changeYearFilter} currentYear={chosenYear} />
-      <ExpenseChart filteredArr={filteredArr}/>
+    <div className='container expenses'>
+      <ExpenseFilter
+        onDataChange={changeYearFilter}
+        currentYear={chosenYear}
+        expensesYears={uniqueYears}
+      />
+      <ExpenseChart filteredArr={filteredArr} />
       {filteredArr.length !== 0 ? (
         filteredArr.map(({ date, title, amount, id }) => (
           <ExpenseItem
