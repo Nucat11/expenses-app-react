@@ -1,6 +1,7 @@
 import "./NewExpense.scss"
 import Input from "../Input/Input"
 import { useState } from "react"
+import AddIcon from "./+"
 export default function NewExpense({ onSaveExpenseData }) {
   const [newExpense, setNewExpense] = useState({})
   const [isOpen, setIsOpen] = useState(false)
@@ -17,7 +18,7 @@ export default function NewExpense({ onSaveExpenseData }) {
     setIsOpen(false)
   }
   return (
-    <div>
+    <div className="new-expense">
       {isOpen ? (
         <form onSubmit={submitHandler}>
           <Input
@@ -48,7 +49,7 @@ export default function NewExpense({ onSaveExpenseData }) {
           </button>
         </form>
       ) : (
-        <button onClick={() => setIsOpen(true)}>Add new expense</button>
+        <button onClick={() => setIsOpen(true)} className='new-expense__button text-primary'>Add new expense <AddIcon/></button>
       )}
     </div>
   )

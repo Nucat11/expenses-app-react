@@ -3,3 +3,18 @@
 @import "./sassVariables";
 @import "./typography";
 @import "./variables";
+@import "./colors";
+
+body {
+  background-color: var(--color-gray-main);
+}
+body,
+* {
+  font-family: "Poppins", sans-serif;
+}
+.main-wrapper {
+  width: 1200px;
+  max-width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+}

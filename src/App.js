@@ -17,10 +17,10 @@ function App() {
     ])
   }
   return (
-    <>
+    <div className="main-wrapper">
       <NewExpense onSaveExpenseData={saveExpenseData} />
       <Expenses expenses={expenses} />
-    </>
+    </div>
   )
 }
 

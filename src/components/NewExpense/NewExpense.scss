@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+@import '../../styles/typography';
+
+.new-expense {
+    background-color: var(--background-color-container);
+    border: var(--border-container);
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+}
