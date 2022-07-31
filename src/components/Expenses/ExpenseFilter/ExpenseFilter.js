@@ -1,25 +1,36 @@
 import "./ExpenseFilter.scss"
+import "./Expand"
+import Select from "react-select"
+import { useState } from "react"
 
 export default function ExpenseFilter({
   onDataChange,
   currentYear,
   expensesYears,
 }) {
+
+
+  const options = [
+    { value: "", label: "All" },
+    ...expensesYears.map((e) => ({
+      value: e,
+      label: e,
+    })),
+  ]
+
   const changeHandler = (e) => {
-    onDataChange(e.target.value)
+    onDataChange(e.value.toString())
   }
   return (
-    <div className='expense-filter'>
-      <select
-        name='filter'
-        id='filter'
+    <div className='expense-filter text--primary text-color--primary' value=''>
+      <Select
+        defaultValue={options[0]}
         onChange={changeHandler}
-        value={currentYear}>
-        <option value=''>All</option>
-        {expensesYears.map(e => (
-          <option value={e}>{e}</option>
-        ))}
-      </select>
+        options={options}
+        isSearchable={false}
+        className='expense-filter__select'
+        classNamePrefix="expense-filter__select"
+      />
     </div>
   )
 }

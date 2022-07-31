@@ -15,7 +15,7 @@
     background: var(--button-background-color);
     border-radius: var(--border-radius-primary);
     padding: 7.5px 15px;
-    box-shadow: 0px 5px 60px 0 rgba(245, 200, 66, 0.25);
+    box-shadow: var(--button-box-shadow);
 
     &--circle {
       height: 50px;
