@@ -1,20 +1,32 @@
+@import '../../../styles/colors';
+
 .chart-bar {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 7.5px;
+  align-items: center;
+  
+  &__outline {
+    height: 100px;
+    width: 10px;
+    background-color: $white;
+    position: relative;
+    border-radius: var(--border-radius-primary);
+  }
 
-    &__outline {
-        height: 100px;
-        width: 10px;
-        background-color: black;
-        position: relative;
-    }
+  &__inline {
+    width: 100%;
+    background-color: $maize;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: var(--border-radius-primary);
+  }
 
-    &__inline {
-        width: 10px;
-        background-color: red;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-    }
+  &__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    width: 2ch;
+  }
 }

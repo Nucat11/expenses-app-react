@@ -1,4 +1,13 @@
 .chart {
     display: flex;
     justify-content: space-between;
+    position: relative;
+    background-color: var(--color-gray-main);
+
+    &__max-value {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate3d(0, calc(-15px - 100%), 0);
+    }
 }

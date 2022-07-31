@@ -5,7 +5,7 @@ export default function ExpenseFilter({ onDataChange, currentYear }) {
     onDataChange(e.target.value)
   }
   return (
-    <div>
+    <div className="expense-filter">
       <select
         name='filter'
         id='filter'

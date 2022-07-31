@@ -22,7 +22,7 @@ export default function Expenses({ expenses }) {
   })
 
   return (
-    <div>
+    <div className="container expenses">
       <ExpenseFilter onDataChange={changeYearFilter} currentYear={chosenYear} />
       <ExpenseChart filteredArr={filteredArr}/>
       {filteredArr.length !== 0 ? (

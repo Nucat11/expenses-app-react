@@ -3,7 +3,7 @@ import "./Input.scss"
 export default function Input({ label, type, min, step, onChange, value }) {
   return (
     <div className='input'>
-      <label htmlFor={label.toLowerCase()} className='input__label text--secondary'>
+      <label htmlFor={label.toLowerCase()} className='input__label text--secondary text-color--secondary'>
         {label}
       </label>
       <input
@@ -13,7 +13,7 @@ export default function Input({ label, type, min, step, onChange, value }) {
         step={step}
         onChange={onChange}
         value={value ? value : ""}
-        className='input__input text--secondary'
+        className='input__input text--secondary text-color--secondary'
       />
     </div>
   )

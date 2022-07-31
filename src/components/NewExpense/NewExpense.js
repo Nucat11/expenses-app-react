@@ -19,7 +19,7 @@ export default function NewExpense({ onSaveExpenseData }) {
     setIsOpen(false)
   }
   return (
-    <div className='new-expense'>
+    <div className='new-expense container'>
       {isOpen ? (
         <form onSubmit={submitHandler} className='new-expense__form'>
           <Input

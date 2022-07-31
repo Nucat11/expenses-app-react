@@ -1,17 +1,28 @@
-h2 {
-    font-size: 40px;
-}
+
 
 .text {
-
     &--primary {
         font-size: var(--text-primary-font-size);
         font-weight: var(--text-primary-font-weight);
-        color: var(--text-color-primary);
+        
     }
 
     &--secondary {
         font-size: var(--text-secondary-font-size);
+    }
+
+    &--chart-label {
+        font-size: var(--label-chart-font-size);
+        font-family: var(--label-chart-font-family);
+    }
+}
+
+.text-color {
+    &--primary {
+        color: var(--text-color-primary);
+    }
+
+    &--secondary {
         color: var(--text-color-secondary);
     }
 }

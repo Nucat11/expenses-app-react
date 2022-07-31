@@ -2,13 +2,10 @@
 @import "../../styles/typography";
 
 .new-expense {
-  background-color: var(--background-color-container);
-  border: var(--border-container);
-  border-radius: var(--border-radius-primary);
-  padding: 30px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 
   &__button {
     display: flex;

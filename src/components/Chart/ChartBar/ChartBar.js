@@ -10,7 +10,7 @@ export default function ChartBar({ label, value, maxValue }) {
       <div className='chart-bar__outline'>
         <div className='chart-bar__inline' style={{height: fillHeight}}></div>
       </div>
-      <span>{label}</span>
+      <span className="chart-bar__label text--chart-label text-color--secondary">{label}</span>
     </div>
   )
 }
