@@ -2,15 +2,18 @@ import "./Input.scss"
 
 export default function Input({ label, type, min, step, onChange, value }) {
   return (
-    <div>
-      <label htmlFor={label.toLowerCase()}>{label}</label>
+    <div className='input'>
+      <label htmlFor={label.toLowerCase()} className='input__label text--secondary'>
+        {label}
+      </label>
       <input
         type={type}
         id={label.toLowerCase()}
         min={min}
         step={step}
         onChange={onChange}
-        value={value ? value : ''}
+        value={value ? value : ""}
+        className='input__input text--secondary'
       />
     </div>
   )

@@ -1,14 +1,59 @@
-@import '../../styles/variables';
-@import '../../styles/typography';
+@import "../../styles/variables";
+@import "../../styles/typography";
 
 .new-expense {
-    background-color: var(--background-color-container);
-    border: var(--border-container);
+  background-color: var(--background-color-container);
+  border: var(--border-container);
+  border-radius: var(--border-radius-primary);
+  padding: 30px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &__button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: var(--button-background-color);
+    border-radius: var(--border-radius-primary);
+    padding: 7.5px 15px;
+    box-shadow: 0px 5px 60px 0 rgba(245, 200, 66, 0.25);
+
+    &--circle {
+      height: 50px;
+      width: 50px;
+      border-radius: 300px;
     }
+
+    &--cancel {
+        background: red;
+        box-shadow: 0px 5px 60px 0 rgb(255, 0, 0, 0.25);
+    }
+  }
+
+  & svg {
+    width: 20px;
+    height: 20px;
+
+    & path {
+      fill: $raisin-black;
+      stroke: $raisin-black;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  &__buttons-container {
+    display: flex;
+    gap: 30px;
+    align-self: center;
+  }
 }

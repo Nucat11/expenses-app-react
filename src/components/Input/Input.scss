@@ -1,0 +1,20 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 7.5px;
+  align-items: flex-start;
+
+  &__input {
+    width: 100%;
+    border-radius: var(--border-radius-primary);
+    background-color: var(--color-gray-main);
+    border: var(--border-container);
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+}

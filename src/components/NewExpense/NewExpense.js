@@ -2,6 +2,7 @@ import "./NewExpense.scss"
 import Input from "../Input/Input"
 import { useState } from "react"
 import AddIcon from "./+"
+import Cancel from "./Cancel"
 export default function NewExpense({ onSaveExpenseData }) {
   const [newExpense, setNewExpense] = useState({})
   const [isOpen, setIsOpen] = useState(false)
@@ -18,9 +19,9 @@ export default function NewExpense({ onSaveExpenseData }) {
     setIsOpen(false)
   }
   return (
-    <div className="new-expense">
+    <div className='new-expense'>
       {isOpen ? (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className='new-expense__form'>
           <Input
             label='Title'
             type='text'
@@ -43,13 +44,27 @@ export default function NewExpense({ onSaveExpenseData }) {
             onChange={changeHandler}
             value={newExpense.date}
           />
-          <button>Add Expense</button>
-          <button type='button' onClick={() => setIsOpen(false)}>
-            Cancel
-          </button>
+          <div className='new-expense__buttons-container'>
+            <button className='new-expense__button new-expense__button--circle'>
+              <AddIcon />
+            </button>
+            <button
+              type='button'
+              onClick={() => {
+                setIsOpen(false)
+                setNewExpense({})
+              }}
+              className='new-expense__button new-expense__button--circle new-expense__button--cancel'>
+              <Cancel />
+            </button>
+          </div>
         </form>
       ) : (
-        <button onClick={() => setIsOpen(true)} className='new-expense__button text-primary'>Add new expense <AddIcon/></button>
+        <button
+          onClick={() => setIsOpen(true)}
+          className='new-expense__button text--primary'>
+          Add new expense <AddIcon />
+        </button>
       )}
     </div>
   )

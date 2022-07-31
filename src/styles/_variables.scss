@@ -6,10 +6,16 @@
   --color-gray-main: #{$chinese-black};
   --color-yellow-main: #{$maize};
 
-  --background-color-container: #{$eerie-black};
+  --background-color-container: #{$raisin-black};
   --border-container: solid 1px #{$maize-opacity};
 
-  --text-primary-font-size: #{$font-size-m};
+  --text-primary-font-size: #{$font-size-s};
   --text-primary-font-weight: #{$font-weight-semibold};
+  --text-secondary-font-size: #{$font-size-xs};
+  --text-color-primary: #{$raisin-black};
+  --text-color-secondary: #{$white};
+
   --border-radius-primary: #{$border-radius-primary};
+
+  --button-background-color: linear-gradient(124deg, #{$maize} 0%, rgba(229,178,0,1) 100%);
 }
