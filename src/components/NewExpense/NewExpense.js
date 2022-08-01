@@ -54,7 +54,7 @@ export default function NewExpense({ onSaveExpenseData }) {
             value={newExpense.date}
           />
           <div className='new-expense__buttons-container'>
-            <button className='new-expense__button new-expense__button--circle'>
+            <button className='button new-expense__button new-expense__button--circle'>
               <AddIcon />
             </button>
             <button
@@ -63,7 +63,7 @@ export default function NewExpense({ onSaveExpenseData }) {
                 setIsOpen(false)
                 setNewExpense({})
               }}
-              className='new-expense__button new-expense__button--circle new-expense__button--cancel'>
+              className='button new-expense__button new-expense__button--circle button--red'>
               <Cancel />
             </button>
           </div>
@@ -71,14 +71,14 @@ export default function NewExpense({ onSaveExpenseData }) {
       ) : (
         <button
           onClick={() => setIsOpen(true)}
-          className='new-expense__button text--primary'>
+          className='button new-expense__button text--primary'>
           Add new expense <AddIcon />
         </button>
       )}
       {!inView && (
         <button
           onClick={clickHandler}
-          className='new-expense__button new-expense__button--fixed text--primary'>
+          className='button new-expense__button new-expense__button--fixed text--primary'>
           <AddIcon />
         </button>
       )}

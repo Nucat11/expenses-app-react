@@ -1,7 +1,6 @@
 import "./ExpenseFilter.scss"
 import "./Expand"
 import Select from "react-select"
-import { useState } from "react"
 
 export default function ExpenseFilter({
   onDataChange,
