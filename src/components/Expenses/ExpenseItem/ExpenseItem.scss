@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-gray-main);
+  position: relative;
   
   &__date-title {
     display: flex;
@@ -14,5 +15,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 110px;
+  }
+
+  &__buttons {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }

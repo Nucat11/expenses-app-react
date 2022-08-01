@@ -1,13 +1,17 @@
 import "./NewExpense.scss"
 import Input from "../Input/Input"
-import { useRef, useState } from "react"
+import { useContext, useState } from "react"
+import ExpenseContext from "../../context/expenseContext"
 import AddIcon from "./+"
 import Cancel from "./Cancel"
 import { useInView } from "react-intersection-observer"
-export default function NewExpense({ onSaveExpenseData }) {
+import { v4 as uuidv4 } from "uuid"
+
+export default function NewExpense() {
   const [newExpense, setNewExpense] = useState({})
   const [isOpen, setIsOpen] = useState(false)
-  const { ref, inView, entry } = useInView({})
+  const { ref, inView } = useInView({})
+  const ctx = useContext(ExpenseContext)
 
   const changeHandler = (e) => {
     setNewExpense({
@@ -15,15 +19,22 @@ export default function NewExpense({ onSaveExpenseData }) {
       [e.target.id]: e.target.value,
     })
   }
+
   const submitHandler = (e) => {
     e.preventDefault()
-    onSaveExpenseData(newExpense)
+    ctx.setExpenses((prev) => [
+      {
+        ...newExpense,
+        id: uuidv4(),
+      },
+      ...prev,
+    ])
     setNewExpense({})
     setIsOpen(false)
   }
 
   const clickHandler = () => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
     setIsOpen(true)
   }
 

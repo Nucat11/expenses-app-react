@@ -4,7 +4,6 @@ import Select from "react-select"
 
 export default function ExpenseFilter({
   onDataChange,
-  currentYear,
   expensesYears,
 }) {
 
