@@ -16,10 +16,15 @@ function App() {
       ...prev,
     ])
   }
+
+  const removeExpense = (id) => {
+    setExpenses(expenses.filter((e) => e.id !== id))
+  }
+
   return (
     <div className="main-wrapper">
       <NewExpense onSaveExpenseData={saveExpenseData} />
-      <Expenses expenses={expenses} />
+      <Expenses expenses={expenses} onRemove={removeExpense}/>
     </div>
   )
 }

@@ -16,6 +16,17 @@
     border-radius: var(--border-radius-primary);
     padding: 7.5px 15px;
     box-shadow: var(--button-box-shadow);
+    
+    &--fixed {
+      height: 50px;
+      width: 50px;
+      border-radius: 300px;
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+      z-index: 100;
+
+    }
 
     &--circle {
       height: 50px;

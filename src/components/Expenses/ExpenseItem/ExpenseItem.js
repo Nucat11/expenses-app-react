@@ -5,7 +5,13 @@ export default function ExpenseItem({
   expenseDate,
   expenseTitle,
   expenseAmount,
+  removeExpense,
+  expenseId,
 }) {
+  const clickHandler = () => {
+    removeExpense(expenseId)
+  }
+
   return (
     <div className='expense-item container'>
       <div className='expense-item__date-title'>
@@ -17,6 +23,12 @@ export default function ExpenseItem({
       <span className='expense-item__price text--title text-color--secondary'>
         ${expenseAmount}
       </span>
+      <div>
+        <button onClick={clickHandler} className='text-color--secondary'>
+          Remove
+        </button>
+        <button>Edit</button>
+      </div>
     </div>
   )
 }

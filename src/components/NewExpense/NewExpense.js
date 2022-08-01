@@ -1,11 +1,14 @@
 import "./NewExpense.scss"
 import Input from "../Input/Input"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import AddIcon from "./+"
 import Cancel from "./Cancel"
+import { useInView } from "react-intersection-observer"
 export default function NewExpense({ onSaveExpenseData }) {
   const [newExpense, setNewExpense] = useState({})
   const [isOpen, setIsOpen] = useState(false)
+  const { ref, inView, entry } = useInView({})
+
   const changeHandler = (e) => {
     setNewExpense({
       ...newExpense,
@@ -18,8 +21,14 @@ export default function NewExpense({ onSaveExpenseData }) {
     setNewExpense({})
     setIsOpen(false)
   }
+
+  const clickHandler = () => {
+    window.scrollTo(0,0)
+    setIsOpen(true)
+  }
+
   return (
-    <div className='new-expense container'>
+    <div className='new-expense container' ref={ref}>
       {isOpen ? (
         <form onSubmit={submitHandler} className='new-expense__form'>
           <Input
@@ -64,6 +73,13 @@ export default function NewExpense({ onSaveExpenseData }) {
           onClick={() => setIsOpen(true)}
           className='new-expense__button text--primary'>
           Add new expense <AddIcon />
+        </button>
+      )}
+      {!inView && (
+        <button
+          onClick={clickHandler}
+          className='new-expense__button new-expense__button--fixed text--primary'>
+          <AddIcon />
         </button>
       )}
     </div>

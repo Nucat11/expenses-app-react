@@ -4,7 +4,7 @@ import ExpenseFilter from "./ExpenseFilter/ExpenseFilter"
 import { useState } from "react"
 import ExpenseChart from "./ExpenseChart/ExpenseChart"
 
-export default function Expenses({ expenses }) {
+export default function Expenses({ expenses, onRemove }) {
   const [chosenYear, setChosenYear] = useState("")
 
   const changeYearFilter = (selectedYear) => {
@@ -26,6 +26,11 @@ export default function Expenses({ expenses }) {
   })
   const uniqueYears = [...new Set(expensesYears)].sort()
 
+  const removeExpenseHandler = (id) => {
+    onRemove(id)
+  }
+  
+
   return (
     <div className='container expenses'>
       <ExpenseFilter
@@ -41,10 +46,12 @@ export default function Expenses({ expenses }) {
             expenseTitle={title}
             expenseAmount={amount}
             key={id}
+            expenseId={id}
+            removeExpense={removeExpenseHandler}
           />
         ))
       ) : (
-        <p>Nothing found!</p>
+        <p className="text-primary text-color--secondary">Nothing found! Add new expense to see it here.</p>
       )}
     </div>
   )
