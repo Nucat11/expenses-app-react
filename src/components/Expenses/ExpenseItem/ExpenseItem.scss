@@ -1,6 +1,18 @@
 .expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-gray-main);
+  
+  &__date-title {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 15px;
+  }
 
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 110px;
+  }
 }

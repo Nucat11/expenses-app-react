@@ -4,5 +4,31 @@
         flex-direction: column;
         align-items: center;
         gap: 10px;
+        position: relative;
+
+        & svg {
+            width: 90px;
+            z-index: 1;
+            position: relative;
+        }
+    }
+
+    &__upper-calendar {
+        position: absolute;
+        z-index: 1;
+        top: 8px;
+        display: flex;
+        gap: 5px;
+        text-transform: uppercase;
+        left: 50%;
+        transform: translate3d(-50%,0,0);
+    }
+    
+    &__day {
+        left: 50%;
+        transform: translate3d(-50%,0,0);
+        position: absolute;
+        z-index: 1;
+        top: 34px;
     }
 }

@@ -7,10 +7,16 @@ export default function ExpenseItem({
   expenseAmount,
 }) {
   return (
-    <div className='expense-item'>
-      <ExpenseDate expenseDate={expenseDate} />
-      <span className='expense-item__title'>{expenseTitle}</span>
-      <span className='expense-item__price'>${expenseAmount}</span>
+    <div className='expense-item container'>
+      <div className='expense-item__date-title'>
+        <ExpenseDate expenseDate={expenseDate} />
+        <span className='expense-item__title text--title text-color--secondary'>
+          {expenseTitle}
+        </span>
+      </div>
+      <span className='expense-item__price text--title text-color--secondary'>
+        ${expenseAmount}
+      </span>
     </div>
   )
 }
