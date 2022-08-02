@@ -1,20 +1,22 @@
 .expense-item {
   display: flex;
-  justify-content: space-between;
+  gap: 15px;
   align-items: center;
   background-color: var(--color-gray-main);
   position: relative;
   
-  &__date-title {
+  &__price-title {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    word-break: break-word;
   }
 
   &__title {
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 110px;
+    width: fit-content;
   }
 
   &__buttons {

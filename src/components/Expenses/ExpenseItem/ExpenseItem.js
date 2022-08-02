@@ -13,46 +13,50 @@ export default function ExpenseItem({
   expenseAmount,
   expenseId,
 }) {
-  const [isOpenModal, setIsOpenModal] = useState({open: false, type: ''})
+  const [isOpenModal, setIsOpenModal] = useState({ open: false, type: "" })
   const ctx = useContext(ExpenseContext)
 
   const confirmHandler = () => {
     ctx.setExpenses(ctx.expenses.filter((e) => e.id !== expenseId))
-    setIsOpenModal({open: false, type: ''})
+    setIsOpenModal({ open: false, type: "" })
   }
 
   const closeModalHandler = () => {
-    setIsOpenModal({open: false, type: ''})
+    setIsOpenModal({ open: false, type: "" })
   }
 
   const editHandler = (edited) => {
-    const editedArr =  ctx.expenses.map((e) => {
-      if(e.id === expenseId) {
-        return {...e, ...edited}
+    const editedArr = ctx.expenses.map((e) => {
+      if (e.id === expenseId) {
+        return { ...e, ...edited }
       }
       return e
     })
-    console.log(editedArr)
+
     ctx.setExpenses(editedArr)
   }
   return (
     <div className='expense-item container'>
-      <div className='expense-item__date-title'>
-        <ExpenseDate expenseDate={expenseDate} />
+      <ExpenseDate expenseDate={expenseDate} />
+      <div className='expense-item__price-title'>
         <span className='expense-item__title text--title text-color--secondary'>
           {expenseTitle}
         </span>
+        <span className='expense-item__price text--title text-color--secondary'>
+          ${expenseAmount}
+        </span>
       </div>
-      <span className='expense-item__price text--title text-color--secondary'>
-        ${expenseAmount}
-      </span>
       <div className='expense-item__buttons'>
         <button
-          onClick={() => setIsOpenModal({open: true, type: 'remove'})}
+          onClick={() => setIsOpenModal({ open: true, type: "remove" })}
           className='text-color--secondary'>
           Remove
         </button>
-        <button onClick={() => setIsOpenModal({open: true, type: 'edit'})} className='text-color--secondary'>Edit</button>
+        <button
+          onClick={() => setIsOpenModal({ open: true, type: "edit" })}
+          className='text-color--secondary'>
+          Edit
+        </button>
       </div>
       {createPortal(
         <RemoveModal
@@ -70,7 +74,10 @@ export default function ExpenseItem({
         />,
         document.getElementById("modal-root")
       )}
-      {createPortal(<Overlay isOpenModal={isOpenModal} closeOverlay={closeModalHandler}/>, document.getElementById("overlay-root"))}
+      {createPortal(
+        <Overlay isOpenModal={isOpenModal} closeOverlay={closeModalHandler} />,
+        document.getElementById("overlay-root")
+      )}
     </div>
   )
 }
