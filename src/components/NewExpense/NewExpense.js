@@ -6,10 +6,12 @@ import AddIcon from "./+"
 import Cancel from "./Cancel"
 import { useInView } from "react-intersection-observer"
 import { v4 as uuidv4 } from "uuid"
+import { CSSTransition } from "react-transition-group"
 
 export default function NewExpense() {
   const [newExpense, setNewExpense] = useState({})
   const [isOpen, setIsOpen] = useState(false)
+
   const { ref, inView } = useInView({})
   const ctx = useContext(ExpenseContext)
 
@@ -34,7 +36,11 @@ export default function NewExpense() {
   }
 
   const clickHandler = () => {
-    window.scrollTo(0, 0)
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     setIsOpen(true)
   }
 
@@ -86,13 +92,18 @@ export default function NewExpense() {
           Add new expense <AddIcon />
         </button>
       )}
-      {!inView && (
+      <CSSTransition
+        in={!inView}
+        timeout={300}
+        classNames='new-expense__animation'
+        mountOnEnter
+        unmountOnExit>
         <button
           onClick={clickHandler}
-          className='button new-expense__button new-expense__button--fixed text--primary'>
+          className={`button new-expense__button new-expense__button--fixed text--primary`}>
           <AddIcon />
         </button>
-      )}
+      </CSSTransition>
     </div>
   )
 }

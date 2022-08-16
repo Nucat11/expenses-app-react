@@ -9,7 +9,7 @@
 
   &__button {
     gap: 15px;
-    
+
     &--fixed {
       height: 50px;
       width: 50px;
@@ -18,15 +18,14 @@
       right: 15px;
       bottom: 15px;
       z-index: 100;
-
     }
+
 
     &--circle {
       height: 50px;
       width: 50px;
       border-radius: 300px;
     }
-
   }
 
   & svg {
@@ -53,4 +52,21 @@
     gap: 30px;
     align-self: center;
   }
+  
 }
+.new-expense__animation-enter {
+  transform: translate3d(0, 100px, 0);
+}
+.new-expense__animation-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s;
+}
+.new-expense__animation-exit {
+  transform: translate3d(0, 0, 0);
+}
+.new-expense__animation-exit-active {
+  transform: translate3d(0, 100px, 0);
+  transition: transform 0.3s;
+}
+
+

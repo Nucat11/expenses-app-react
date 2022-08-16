@@ -22,7 +22,8 @@
   &__buttons {
     display: flex;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 12.5px;
+    top: -12.5px;
+    gap: 15px;
   }
 }

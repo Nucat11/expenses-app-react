@@ -6,6 +6,8 @@ import { createPortal } from "react-dom"
 import Overlay from "./ExpenseModals/Overlay"
 import EditModal from "./ExpenseModals/EditModal"
 import ExpenseContext from "../../../context/expenseContext"
+import Delete from "./Delete"
+import Edit from "./Edit"
 
 export default function ExpenseItem({
   expenseDate,
@@ -50,12 +52,12 @@ export default function ExpenseItem({
         <button
           onClick={() => setIsOpenModal({ open: true, type: "remove" })}
           className='text-color--secondary'>
-          Remove
+          <Delete />
         </button>
         <button
           onClick={() => setIsOpenModal({ open: true, type: "edit" })}
           className='text-color--secondary'>
-          Edit
+          <Edit />
         </button>
       </div>
       {createPortal(
