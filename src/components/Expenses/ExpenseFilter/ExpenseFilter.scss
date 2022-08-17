@@ -1,17 +1,24 @@
 @import "../../../styles/colors";
+@import "../../../styles/mixins";
 
 .expense-filter {
   align-self: flex-end;
   background: var(--button-background-color);
   width: 110px;
   border-radius: var(--border-radius-primary);
-
   box-shadow: var(--button-box-shadow);
 
   &__select {
     &__control {
       background-color: transparent !important;
       border: none !important;
+      cursor: pointer !important;
+      transition: transform 0.3s;
+      &:hover {
+        @include lg {
+          transform: scale3d(1.05, 1.05, 1.05);
+        }
+      }
     }
 
     &__dropdown-indicator {
@@ -25,18 +32,19 @@
     }
 
     &__menu {
-        border-radius: var(--border-radius-primary);
-        border: var(--border-container);
+      border-radius: var(--border-radius-primary);
+      border: var(--border-container);
     }
-    
+
     &__option {
-        background-color: $white !important;
-        color: var(--text-color-primary) !important;
-        box-shadow: var(--button-box-shadow) !important;
+      background-color: $white !important;
+      color: var(--text-color-primary) !important;
+      box-shadow: var(--button-box-shadow) !important;
+      cursor: pointer !important;
     }
 
     &__value-container {
-        justify-content: center !important;
+      justify-content: center !important;
     }
   }
 }

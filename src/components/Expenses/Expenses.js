@@ -41,6 +41,7 @@ export default function Expenses() {
       <CSSTransition
         in={filteredArr.length !== 0}
         timeout={500}
+        classNames='newExpense'
         mountOnEnter
         unmountOnExit>
         <TransitionGroup className='expenses'>
@@ -61,15 +62,11 @@ export default function Expenses() {
           ))}
         </TransitionGroup>
       </CSSTransition>
-      <CSSTransition
-        in={filteredArr.length === 0}
-        timeout={500}
-        mountOnEnter
-        unmountOnExit>
+      {filteredArr.length === 0 && (
         <p className='text-primary text-color--secondary'>
           Nothing found! Add new expense to see it here.
         </p>
-      </CSSTransition>
+      )}
     </div>
   )
 }

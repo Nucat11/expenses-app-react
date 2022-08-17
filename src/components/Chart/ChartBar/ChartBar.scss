@@ -1,4 +1,5 @@
-@import "../../../styles/colors";
+@import '../../../styles/colors';
+@import '../../../styles/mixins';
 
 .chart-bar {
   display: flex;
@@ -29,6 +30,11 @@
     overflow: hidden;
     text-overflow: clip;
     width: 2ch;
+
+    @include lg {
+      width: 3ch;
+    }
+
   }
 }
 

@@ -18,6 +18,12 @@ body,
   padding: 20px;
   margin-top: 10px;
 }
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 .container {
   background-color: var(--background-color-container);
@@ -33,6 +39,15 @@ body,
   border-radius: var(--border-radius-primary);
   padding: 7.5px 15px;
   box-shadow: var(--button-box-shadow);
+  transition: opacity 0.3s, transform 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    @include lg {
+      opacity: 0.8;
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  }
 
   &--red {
     background: red;

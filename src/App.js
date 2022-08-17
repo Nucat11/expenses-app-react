@@ -4,10 +4,12 @@ import NewExpense from "./components/NewExpense/NewExpense"
 
 function App() {
   return (
+    <div className="main">
       <div className='main-wrapper'>
-        <NewExpense/>
-        <Expenses/>
+        <NewExpense />
+        <Expenses />
       </div>
+    </div>
   )
 }
 
