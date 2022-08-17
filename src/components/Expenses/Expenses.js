@@ -4,11 +4,11 @@ import ExpenseFilter from "./ExpenseFilter/ExpenseFilter"
 import ExpenseChart from "./ExpenseChart/ExpenseChart"
 import { useContext, useState } from "react"
 import ExpenseContext from "../../context/expenseContext"
+import { TransitionGroup, CSSTransition } from "react-transition-group"
 
 export default function Expenses() {
   const [chosenYear, setChosenYear] = useState("")
   const ctx = useContext(ExpenseContext)
-
 
   const changeYearFilter = (selectedYear) => {
     setChosenYear(selectedYear)
@@ -31,29 +31,45 @@ export default function Expenses() {
 
   const uniqueYears = [...new Set(expensesYears)].sort()
 
-
   return (
-    <div className='container expenses'>
+    <div className='container expenses expenses--overflow'>
       <ExpenseFilter
         onDataChange={changeYearFilter}
         expensesYears={uniqueYears}
       />
       <ExpenseChart filteredArr={filteredArr} />
-      {filteredArr.length !== 0 ? (
-        filteredArr.map(({ date, title, amount, id }) => (
-          <ExpenseItem
-            expenseDate={date}
-            expenseTitle={title}
-            expenseAmount={amount}
-            key={id}
-            expenseId={id}
-          />
-        ))
-      ) : (
+      <CSSTransition
+        in={filteredArr.length !== 0}
+        timeout={500}
+        mountOnEnter
+        unmountOnExit>
+        <TransitionGroup className='expenses'>
+          {filteredArr.map(({ date, title, amount, id }) => (
+            <CSSTransition
+              key={id}
+              classNames='newExpense'
+              timeout={500}
+              mountOnEnter
+              unmountOnExit>
+              <ExpenseItem
+                expenseDate={date}
+                expenseTitle={title}
+                expenseAmount={amount}
+                expenseId={id}
+              />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </CSSTransition>
+      <CSSTransition
+        in={filteredArr.length === 0}
+        timeout={500}
+        mountOnEnter
+        unmountOnExit>
         <p className='text-primary text-color--secondary'>
           Nothing found! Add new expense to see it here.
         </p>
-      )}
+      </CSSTransition>
     </div>
   )
 }

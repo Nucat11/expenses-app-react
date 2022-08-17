@@ -2,4 +2,26 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  &--overflow {
+    overflow: hidden;
+  }
+}
+.newExpense-enter {
+  transform: translate3d(500px, 0, 0);
+  opacity: 0;
+}
+.newExpense-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.5s ease-out, transform 0.5s;
+}
+.newExpense-exit {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+.newExpense-exit-active {
+  transform: translate3d(500px, 0, 0);
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s;
 }
