@@ -11,6 +11,7 @@ import { CSSTransition } from "react-transition-group"
 export default function NewExpense() {
   const [newExpense, setNewExpense] = useState({})
   const [isOpen, setIsOpen] = useState(false)
+  const [showButton, setShowButton] = useState(true)
 
   const { ref, inView } = useInView({})
   const ctx = useContext(ExpenseContext)
@@ -39,14 +40,21 @@ export default function NewExpense() {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth'
-    });
-    setIsOpen(true)
+      behavior: "smooth",
+    })
+    setShowButton(false)
   }
 
   return (
     <div className='new-expense container' ref={ref}>
-      {isOpen ? (
+      <CSSTransition
+        classNames='new-expense-container'
+        in={isOpen}
+        mountOnEnter
+        unmountOnExit
+        timeout={300}
+        onEnter={() => setShowButton(false)}
+        onExited={() => setShowButton(true)}>
         <form onSubmit={submitHandler} className='new-expense__form'>
           <Input
             label='Title'
@@ -85,13 +93,21 @@ export default function NewExpense() {
             </button>
           </div>
         </form>
-      ) : (
+      </CSSTransition>
+      <CSSTransition
+        in={showButton}
+        unmountOnExit
+        mountOnEnter
+        timeout={300}
+        classNames='new-expense-container'
+        onEnter={() => setIsOpen(false)}
+        onExited={() => setIsOpen(true)}>
         <button
-          onClick={() => setIsOpen(true)}
+          onClick={() => setShowButton(false)}
           className='button new-expense__button text--primary'>
           Add new expense <AddIcon />
         </button>
-      )}
+      </CSSTransition>
       <CSSTransition
         in={!inView}
         timeout={300}
