@@ -51,12 +51,12 @@ export default function ExpenseItem({
       <div className='expense-item__buttons'>
         <button
           onClick={() => setIsOpenModal({ open: true, type: "remove" })}
-          className='text-color--secondary'>
+          className='expense-item__action-button text-color--secondary'>
           <Delete />
         </button>
         <button
           onClick={() => setIsOpenModal({ open: true, type: "edit" })}
-          className='text-color--secondary'>
+          className='expense-item__action-button text-color--secondary'>
           <Edit />
         </button>
       </div>

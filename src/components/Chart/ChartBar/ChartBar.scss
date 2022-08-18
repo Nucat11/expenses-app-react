@@ -1,5 +1,6 @@
-@import '../../../styles/colors';
-@import '../../../styles/mixins';
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
 
 .chart-bar {
   display: flex;
@@ -10,10 +11,11 @@
   &__outline {
     height: 100px;
     width: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: #212126;
     position: relative;
     border-radius: var(--border-radius-primary);
     overflow: hidden;
+    border: var(--border-container);
   }
 
   &__inline {
@@ -34,7 +36,6 @@
     @include lg {
       width: 3ch;
     }
-
   }
 }
 

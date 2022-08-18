@@ -8,6 +8,12 @@
   border-radius: var(--border-radius-primary);
   box-shadow: var(--button-box-shadow);
 
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__select {
     &__control {
       background-color: transparent !important;
